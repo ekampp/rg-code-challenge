@@ -15,8 +15,6 @@ jobs:
         with:
           ruby-version: 3.0.3
           bundler-cache: true
-        env:
-          SSH_AUTH_SOCK: /tmp/ssh_agent.sock # Required to use SSH key from the previous step of adding SSH key
 
       - name: Run RSpec
         run: bundle exec rspec
