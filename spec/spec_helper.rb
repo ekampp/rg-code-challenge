@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 require "rspec/its"
 require "simplecov"
 
 SimpleCov.start do
-  add_filter /spec/
+  add_filter(/spec/)
   add_group "Lib", "lib"
 end
 
@@ -52,8 +54,8 @@ RSpec.configure do |config|
   # triggering implicit auto-inclusion in groups with matching metadata.
   config.shared_context_metadata_behavior = :apply_to_host_groups
 
-# The settings below are suggested to provide a good initial experience
-# with RSpec, but feel free to customize to your heart's content.
+  # The settings below are suggested to provide a good initial experience
+  # with RSpec, but feel free to customize to your heart's content.
 
   # This allows you to limit a spec run to individual examples or groups
   # you care about by tagging them with `:focus` metadata. When nothing
@@ -102,5 +104,4 @@ RSpec.configure do |config|
   # test failures related to randomization by passing the same `--seed` value
   # as the one that triggered the failure.
   Kernel.srand config.seed
-
 end

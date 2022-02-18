@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Array
   # Flattens a nested array of mixed items
   def flatten

@@ -1,0 +1,43 @@
+# See https://docs.rubocop.org/rubocop/configuration
+
+AllCops:
+  TargetRubyVersion: 3.0
+  NewCops: enable
+
+Style/Documentation:
+  Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Layout/IndentationConsistency:
+  EnforcedStyle: indented_internal_methods
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Layout/MultilineAssignmentLayout:
+  EnforcedStyle: same_line
+
+Layout/EndAlignment:
+  EnforcedStyleAlignWith: variable
+
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/TernaryParentheses:
+  EnforcedStyle: require_parentheses_when_complex
+  AllowSafeAssignment: false
+
+Style/MethodCallWithArgsParentheses:
+  EnforcedStyle: require_parentheses
+  AllowParenthesesInMultilineCall: false
+  AllowParenthesesInChaining: true
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*_spec.rb
+    - Guardfile

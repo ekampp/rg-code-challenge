@@ -1,0 +1,22 @@
+name: Linting
+on:
+  - push
+jobs:
+  rspec:
+    name: Rubocop
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Set up ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.0.3
+          bundler-cache: true
+        env:
+          SSH_AUTH_SOCK: /tmp/ssh_agent.sock # Required to use SSH key from the previous step of adding SSH key
+
+      - name: Run Rubocop
+        run: bundle exec rubocop
