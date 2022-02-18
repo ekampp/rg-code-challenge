@@ -6,6 +6,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby "3.0.3"
 
 group :test, :development do
+  gem "bundler-audit"
   gem "guard"
   gem "rspec"
   gem "rubocop"
