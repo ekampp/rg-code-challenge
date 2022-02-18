@@ -13,4 +13,5 @@ end
 group :test do
   gem "rspec-its"
   gem "guard-rspec"
+  gem "simplecov"
 end
