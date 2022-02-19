@@ -3,30 +3,61 @@
 require "spec_helper"
 require_relative "../lib/node"
 
-RSpec.describe "Node" do
-  subject(:tree) do
-    Node.new(
-      operator: "÷",
-      left: Node.new(
-        operator: "+",
-        left: Node.new(value: 7),
-        right: Node.new(
-          operator: "x",
-          left: Node.new(
-            operator: "-",
-            left: Node.new(value: 3),
-            right: Node.new(value: 2)
-          ),
-          right: Node.new(value: 5)
-        )
-      ),
-      right: Node.new(value: 6)
-    )
+RSpec.describe "Node", :focus do
+  # Original, positional arguments. See other tests for kvargs signature.
+  describe "positional arguments" do
+    subject(:tree) do
+      Node.new(
+        "÷",
+        nil,
+        Node.new(
+          "+",
+          nil,
+          Node.new("", 7, nil, nil),
+          Node.new(
+            "x",
+            nil,
+            Node.new("-", nil,
+              Node.new("", 3, nil, nil),
+              Node.new("", 2, nil, nil)
+            ),
+            Node.new("", 5, nil, nil)
+          )
+        ),
+        Node.new("", 6, nil, nil)
+      );
+    end
+
+    # Original happy path tests from the assignment
+    its(:to_s) { is_expected.to eql "((7 + ((3 - 2) x 5)) ÷ 6)" }
+    its(:result) { is_expected.to eq 2 }
   end
 
-  # Original happy path tests from the assignment
-  its(:to_s) { is_expected.to eql "((7 + ((3 - 2) x 5)) ÷ 6)" }
-  its(:result) { is_expected.to eq 2 }
+  describe 'kvargs' do
+    subject(:tree) do
+      Node.new(
+        operator: "÷",
+        left: Node.new(
+          operator: "+",
+          left: Node.new(value: 7),
+          right: Node.new(
+            operator: "x",
+            left: Node.new(
+              operator: "-",
+              left: Node.new(value: 3),
+              right: Node.new(value: 2)
+            ),
+            right: Node.new(value: 5)
+          )
+        ),
+        right: Node.new(value: 6)
+      );
+    end
+
+    # Original happy path tests from the assignment
+    its(:to_s) { is_expected.to eql "((7 + ((3 - 2) x 5)) ÷ 6)" }
+    its(:result) { is_expected.to eq 2 }
+  end
 
   describe "invalid arguments" do
     subject(:tree) { Node.new(operator: operator, value: value, left: left, right: right) }

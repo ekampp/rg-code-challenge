@@ -8,11 +8,15 @@ class Node
     "-" => "-",
   }.freeze
 
-  def initialize(operator: "", value: 0.0, left: nil, right: nil)
-    @operator = operator
-    @value = value
-    @left = left
-    @right = right
+  def initialize(*args, operator: nil, value: nil, left: nil, right: nil)
+    # Preserve backwards compatibility with original, positional signature
+    orig_operator, orig_value, orig_left, orig_right, *_ = *args
+
+    @operator = (operator || orig_operator).to_s
+    @value = value || orig_value
+    @left = left || orig_left
+    @right = right || orig_right
+
     validate_arguments!
   end
 
