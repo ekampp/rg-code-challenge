@@ -18,14 +18,13 @@ RSpec.describe "Node", :focus do
             "x",
             nil,
             Node.new("-", nil,
-              Node.new("", 3, nil, nil),
-              Node.new("", 2, nil, nil)
-            ),
+                     Node.new("", 3, nil, nil),
+                     Node.new("", 2, nil, nil)),
             Node.new("", 5, nil, nil)
           )
         ),
         Node.new("", 6, nil, nil)
-      );
+      )
     end
 
     # Original happy path tests from the assignment
@@ -33,7 +32,7 @@ RSpec.describe "Node", :focus do
     its(:result) { is_expected.to eq 2 }
   end
 
-  describe 'kvargs' do
+  describe "kvargs" do
     subject(:tree) do
       Node.new(
         operator: "÷",
@@ -51,7 +50,7 @@ RSpec.describe "Node", :focus do
           )
         ),
         right: Node.new(value: 6)
-      );
+      )
     end
 
     # Original happy path tests from the assignment

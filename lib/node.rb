@@ -10,7 +10,7 @@ class Node
 
   def initialize(*args, operator: nil, value: nil, left: nil, right: nil)
     # Preserve backwards compatibility with original, positional signature
-    orig_operator, orig_value, orig_left, orig_right, *_ = *args
+    orig_operator, orig_value, orig_left, orig_right, = *args
 
     @operator = (operator || orig_operator).to_s
     @value = value || orig_value
