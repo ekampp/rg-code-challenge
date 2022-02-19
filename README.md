@@ -1,15 +1,21 @@
 # Code Challenge
 
-## Prerequisites
-
-* Ruby >= 3.0.3
-
 ## Usage
 
 Include the files from the `lib` folder in your project.
 
 ## Tests
 
-Run `bundle install` and then require either the array or nodelib files in your project.
+Locally on your machine:
 
-Run `bundle exec rspec` to run tests. Run `bundle exec guard` to start continous testing locally.
+```bash
+bundle install
+bundle exec rspec
+```
+
+Or if you want to [use docker](https://docs.docker.com/engine/install):
+
+```bash
+docker build -t rgcc:latest .
+docker run rgcc:latest
+```
