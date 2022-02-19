@@ -2,7 +2,7 @@
 
 ## Usage
 
-Include the files from the `lib` folder in your project.
+Require the files from the `lib` folder in your project.
 
 ## Tests
 
