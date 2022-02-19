@@ -3,7 +3,7 @@
 require "spec_helper"
 require_relative "../lib/node"
 
-RSpec.describe "Node", :focus do
+RSpec.describe "Node" do
   # Original, positional arguments. See other tests for kvargs signature.
   describe "positional arguments" do
     subject(:tree) do
